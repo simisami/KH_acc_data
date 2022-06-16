@@ -1,13 +1,20 @@
-const http = require('http')
+var http = require('http');
+var server = http.createServer ( function(request,response){
 
-const port = process.env.PORT || 3000
+response.writeHead(200,{"Content-Type":"text\plain"});
+if(request.method == "GET")
+    {
+        response.end("received GET request.")
+    }
+else if(request.method == "POST")
+    {
+        response.end("received POST request.");
+    }
+else
+    {
+        response.end("Undefined request .");
+    }
+});
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'text/html')
-    res.end('<h1>Hello, World!</h1>')
-})
-
-server.listen(port, () => {
-    console.log(`Server running at port ${port}`)
-})
+server.listen(3000);
+console.log("Server running on port 3000");
