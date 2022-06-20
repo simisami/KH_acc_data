@@ -19,5 +19,5 @@ else
     }
 });
 
-server.listen(80);
+server.listen(process.env.port);
 console.log("Server running on port 80");
