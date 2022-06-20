@@ -20,4 +20,4 @@ else
 });
 
 server.listen(process.env.port);
-console.log("Server running on port 80");
+console.log("Server running on port " + process.env.port);
