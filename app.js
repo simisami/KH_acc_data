@@ -4,7 +4,8 @@ var server = http.createServer ( function(request,response){
 response.writeHead(200,{"Content-Type":"text\plain"});
 if(request.method == "GET")
     {
-        response.end("received GET request.")
+        console.log(request.headers)
+        response.end(request.headers)
         console.log("received GET request")
     }
 else if(request.method == "POST")
